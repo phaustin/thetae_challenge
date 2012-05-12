@@ -1,5 +1,5 @@
-function thetaepout=thetaep(Td,T,p)
-%   in: Td = dewpoint temperature in Kelvin
+function thetaepout=thetaep(wT,T,p)
+%   in: wT = total water mixing ratio in kg/kg
 %       T = temperature in Kelvin
 %       p = pressure in Pa
 %  out: thetaep = pseudo equivalent potential temperature in Kelvin
@@ -8,10 +8,11 @@ function thetaepout=thetaep(Td,T,p)
 %  this is a more accurate version of W&H eq. 3.71
 %
   c=constants;
-  if Td < T;
+  ws=wsat(T,p);
+  if ws > wT;
     %parcel is unsaturated
-    [Tlcl,plcl] = LCLfind(Td,T,p);
-    wv=wsat(Td,p);
+    [Tlcl,plcl] = LCLfind(wT,T,p);
+    wv=wT;
   else;
     %parcel is saturated -- prohibit supersaturation with Td > T
     Tlcl=T;
@@ -28,3 +29,4 @@ function thetaepout=thetaep(Td,T,p)
   if(thetaepout > 450.)
     thetaepout=450;
   end
+end

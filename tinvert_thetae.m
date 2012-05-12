@@ -15,10 +15,7 @@ end
 
 
 function result = Tchange(Tguess,thetaeVal,wT,p);
-   [wv,wl]=findWvWl(Tguess,wT,p);
-   tdGuess=findTdwv(wv,p);
-   %iterate on Tguess until this function is zero to within tolerance
-   result = thetaeVal - thetaep(tdGuess,Tguess,p);
+   result = thetaeVal - thetaep(wT,Tguess,p);
 end
 
     

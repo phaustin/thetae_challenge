@@ -18,7 +18,7 @@ function thetae_test
     figure(1)
     clf;
     contourf(thetae0,press*1.e-2,out_temp);
-    xlabel('\theta_e (K)')
+    xlabel('theta_e (K)')
     ylabel('pressure (hPa)')
     title('Temperture (K) for w_T=10 g/kg')
     colorbar;
@@ -26,7 +26,7 @@ function thetae_test
     figure(2)
     clf
     contourf(thetae0,press*1.e-2,out_wv*1.e3);
-    xlabel('\theta_e (K)')
+    xlabel('theta_e (K)')
     ylabel('pressure (hPa)')
     title('vapor mixing ratio (g/kg) for w_T=10 g/kg')
     colorbar;
